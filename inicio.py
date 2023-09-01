@@ -1,12 +1,10 @@
 import datetime
 import time
 fecha_actual = datetime.date.today()
-print("Evidencia 1 prueba")
 #Metodos
-
-
 #Menu
 registros=[]
+resultado=[]
 TALLER_MECANICO={
     "NOTAS":{
         1:{
@@ -34,8 +32,7 @@ while True:
             if descripcion=="":
                 break
             monto=float(input("Cual es su monto a pagar: "))
-            datos =((nomcliente,fecha,descripcion,monto))
-            TALLER_MECANICO={folio:datos}
+            TALLER_MECANICO[folio]=(nomcliente,fecha,descripcion,monto)
             print(TALLER_MECANICO)
 
     if op==2:
@@ -44,12 +41,14 @@ while True:
             consulta=int(input("Eliga una opcion: "))
             if consulta==1:
                 consulta_periodo=input("Cual es su periodo")
-                break
+                for clave,datos in TALLER_MECANICO.items():
+                    if datos[2]==fecha:
+                        resultado.append(datos)
             elif consulta==2:
                 consulta_folio=int(input("Cual es su folio"))
                 while True:
-                    if consulta_folio in TALLER_MECANICO:
-                        TALLER_MECANICO.pop
+                    for folio in TALLER_MECANICO:
+                        print(f'El registro es: {folio},{nomcliente},{fecha},{descripcion},{monto}')
                     else:        
                         print("folio no valido intente de nuevo")
                         break
@@ -69,3 +68,5 @@ while True:
     if op==5:
         break
         #monto a pagar 
+    
+
