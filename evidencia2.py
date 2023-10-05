@@ -55,7 +55,7 @@ def registrar_nota():
         fecha = input("Ingrese la fecha de la nota (YYYY-MM-DD): ")
         fecha = datetime.datetime.strptime(fecha, "%Y-%m-%d")
         if fecha > datetime.datetime.now():
-            print("Error: La fecha no puede ser posterior a la fecha actual.")
+            print("Error: La fecha no puede ser posterior a la fecha actual")
             return
         cliente = input("Ingrese el nombre del cliente: ")
         rfc = input("Ingrese el RFC del cliente: ")
@@ -64,8 +64,8 @@ def registrar_nota():
         email = input("Ingrese el correo electrónico del cliente: ")
         detalle = []
         while True:
-            servicio = input("Ingrese el nombre del servicio (o escriba 'fin' para terminar): ")
-            if servicio.lower() == "fin":
+            servicio = input("Ingrese el nombre del servicio (x): ")
+            if servicio.lower() == "x":
                 break
             costo = float(input("Ingrese el costo del servicio: "))
             if costo <= 0:
@@ -89,7 +89,7 @@ def registrar_nota():
 
         print("Nota registrada con éxito. Folio:", folio)
     except Exception :
-        print(f"Ocurrió un error inesperado:")
+        print(f"Ocurrió un error, intente de nuevo")
 # consultar una nota por folio
 def consultar_por_folio():
     try:
@@ -112,9 +112,9 @@ def consultar_por_folio():
         else:
             print("La nota no existe o está cancelada.")
     except ValueError:
-        print("Error: Ingrese un folio válido (número entero).")
+        print("Error: Ingrese un folio válido")
     except Exception :
-        print(f"Ocurrió un error inesperado: ")
+        print(f"Ocurrió un error, intente de nuevo")
 
 #consultar notas por período
 def consultar_por_periodo():
@@ -154,9 +154,9 @@ def consultar_por_periodo():
             print("No se encontraron notas en el período especificado.")
 
     except ValueError:
-        print("Error: Ingrese fechas válidas (YYYY-MM-DD).")
+        print("Error de fecha: Ingrese fechas válidas (YYYY-MM-DD).")
     except Exception as e:
-        print(f"Ocurrió un error inesperado: {e}")
+        print(f"Ocurrió un error, intente de nuevo")
 
 #cancelar una nota
 def cancelar_nota():
@@ -170,11 +170,11 @@ def cancelar_nota():
             else:
                 print("La nota ya está cancelada.")
         else:
-            print("La nota no existe en el sistema.")
+            print("La nota no existe")
     except ValueError:
-        print("Error: Ingrese un folio válido (número entero).")
+        print("Error: Ingrese un folio válido")
     except Exception as e:
-        print(f"Ocurrió un error inesperado:")
+        print(f"Ocurrió un error, intente de nuevo")
 
 #recuperar una nota cancelada
 def recuperar_nota():
@@ -197,9 +197,9 @@ def recuperar_nota():
         else:
             print("No hay notas canceladas para recuperar.")
     except ValueError:
-        print("Error: Ingrese un folio válido (número entero).")
+        print("Error: Ingrese un folio válido")
     except Exception as e:
-        print(f"Ocurrió un error inesperado:")
+        print(f"Ocurrió un error, intente de nuevo")
 
 # Menú
 while True:
